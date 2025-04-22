@@ -39,10 +39,6 @@ raw_data[1:10,1:10]
 gsg <- goodSamplesGenes(t(raw_data)) # goodSamplesGenes (gsg)
 summary(gsg)
 
-#
-gsg$allOK
-table(gsg$goodGenes) #
-table(gsg$goodSamples) #
 gsg$allOK # True: all genes passed the quality control; False: some genes failed the QC and should be removed
 table(gsg$goodGenes) # True: the genes can be used for further analysis; False: genes need to be removed  
 table(gsg$goodSamples) # True: samples are usable for the analysis; False: some samples should be removed
@@ -154,8 +150,6 @@ cor <- temp_cor
 ## Module Eigengens
 module_eigengens <- bwnet$MEs
 head(module_eigengens)
-
-##
 table(bwnet$colors)
 
 ## Dendogram analysis 
@@ -182,7 +176,7 @@ group_out <- binarizeCategoricalColumns(colData$group,
                                         includeLevelVsAll = TRUE,
                                         minCount = 1)
 
-traits <- cbind(traits, group_out) #*
+traits <- cbind(traits, group_out) 
 
 ## Define number of genes 
 nSamples <- nrow(norm_count)
